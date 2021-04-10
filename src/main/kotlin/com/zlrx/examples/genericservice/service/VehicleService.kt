@@ -12,9 +12,9 @@ import org.springframework.http.HttpStatus
 
 class VehicleType {
     companion object {
-        const val BUS = "BUS"
-        const val CAR = "CAR"
-        const val LORRY = "LORRY"
+        const val BUS = "bus"
+        const val CAR = "car"
+        const val LORRY = "lorry"
     }
 }
 
