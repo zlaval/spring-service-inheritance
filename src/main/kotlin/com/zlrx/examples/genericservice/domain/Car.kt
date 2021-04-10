@@ -1,25 +1,33 @@
 package com.zlrx.examples.genericservice.domain
 
 import com.zlrx.examples.genericservice.error.ServiceException
-import org.springframework.data.mongodb.core.mapping.DBRef
 import org.springframework.http.HttpStatus
 
 data class Car(
+    var _id: String? = null,
     val producer: String,
     val licencePlate: String,
     val engineCapacity: Int,
-) : Vehicle {
+    override val wheelIds: MutableList<String> = mutableListOf()
+) : Vehicle() {
 
-    @DBRef(lazy = true)
-    override val wheels: MutableMap<WheelPlace, Wheel> = mutableMapOf()
+    //@DBRef can be used here in non reactive environment
+    @org.springframework.data.annotation.Transient
+    override var wheels = mutableListOf<Wheel>()
 
-    @Transient
+    @org.springframework.data.annotation.Transient
     override val wheelNumber: Int = 4
 
+
+    //treat as a custom logic in demo (can be extracted into superclass)
     override fun addWheels(installableWheels: List<Wheel>) {
         when (installableWheels.size) {
             wheelNumber -> installableWheels.forEachIndexed { i, w ->
-                wheels[CarWheelPlace.values()[i]] = w
+                val place = WheelPlace.values()[i]
+                w.place = place
+                w.mounted = true
+                wheels.add(w)
+                wheelIds.add(w._id!!)
             }
             else -> throw ServiceException("You have to install $wheelNumber wheels onto the car", HttpStatus.BAD_REQUEST)
         }

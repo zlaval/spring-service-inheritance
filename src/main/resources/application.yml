@@ -1,0 +1,14 @@
+server:
+  port: 8000
+
+logging:
+  level:
+    com.zlrx: DEBUG
+    org.springframework: INFO
+
+spring:
+  application:
+    name: generic-service
+  data:
+    mongodb:
+      uri: mongodb://admin:admin@localhost:27017/admin

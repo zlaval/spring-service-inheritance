@@ -17,6 +17,10 @@ repositories {
     maven { url = uri("https://repo.spring.io/snapshot") }
 }
 
+configurations.forEach {
+    it.exclude(module = "spring-boot-starter-tomcat")
+}
+
 dependencies {
     implementation("org.springframework.boot:spring-boot-starter-data-mongodb-reactive")
     implementation("org.springframework.boot:spring-boot-starter-webflux")
@@ -25,6 +29,9 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactor")
+    implementation("org.apache.commons:commons-lang3:3.12.0")
+
+
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("io.projectreactor:reactor-test")
 }
