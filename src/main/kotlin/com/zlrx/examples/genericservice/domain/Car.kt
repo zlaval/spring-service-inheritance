@@ -26,6 +26,7 @@ data class Car(
                 val place = WheelPlace.values()[i]
                 w.place = place
                 w.mounted = true
+                w.description = "installed on car"
                 wheels.add(w)
                 wheelIds.add(w._id!!)
             }
