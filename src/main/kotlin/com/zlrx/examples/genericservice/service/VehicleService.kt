@@ -12,10 +12,19 @@ abstract class VehicleService<T : Vehicle, RT : VehicleRepository<T>>(
     private val wheelRepository: WheelRepository
 ) {
 
+    abstract val create: (String, Int, Int) -> T
+
     suspend fun installWheels(id: String) {
         val vehicle = repository.findById(id) ?: throw ServiceException("Not found", HttpStatus.NOT_FOUND)
         val wheels = wheelRepository.findNotInstalled(vehicle.wheelNumber).toList()
         vehicle.addWheels(wheels)
+    }
+
+    suspend fun searchVehicle(id: String) = repository.findById(id)
+
+    suspend fun addVehicle(producer: String, engineCapacity: Int, wheelNumber: Int): T {
+        val vehicle = create(producer, engineCapacity, wheelNumber)
+        return repository.save(vehicle)
     }
 
 }

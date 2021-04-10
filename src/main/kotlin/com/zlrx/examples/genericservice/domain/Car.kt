@@ -1,16 +1,20 @@
 package com.zlrx.examples.genericservice.domain
 
 import com.zlrx.examples.genericservice.error.ServiceException
+import org.springframework.data.mongodb.core.mapping.DBRef
 import org.springframework.http.HttpStatus
 
 data class Car(
     val producer: String,
     val licencePlate: String,
     val engineCapacity: Int,
-    override val wheelNumber: Int,
+) : Vehicle {
+
+    @DBRef(lazy = true)
     override val wheels: MutableMap<WheelPlace, Wheel> = mutableMapOf()
 
-) : Vehicle {
+    @Transient
+    override val wheelNumber: Int = 4
 
     override fun addWheels(installableWheels: List<Wheel>) {
         when (installableWheels.size) {
