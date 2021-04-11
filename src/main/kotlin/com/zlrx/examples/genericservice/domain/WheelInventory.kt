@@ -15,11 +15,8 @@ enum class WheelPlace {
     MIDDLE_RIGHT_2
 }
 
-data class Wheel(
+data class WheelInventory(
     var _id: String? = null,
     val size: Int,
-    val tension: Int,
-    var description: String? = null,
-    var place: WheelPlace? = null,
-    var mounted: Boolean = false
+    val tension: Int
 )

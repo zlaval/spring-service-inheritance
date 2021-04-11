@@ -7,11 +7,9 @@ data class Car(
     val producer: String,
     val licencePlate: String,
     val engineCapacity: Int,
-    override val wheelIds: MutableList<String> = mutableListOf()
 ) : Vehicle() {
 
-    @org.springframework.data.annotation.Transient
-    override var wheels = mutableListOf<Wheel>()
+    override var wheels: MutableList<Wheel> = mutableListOf()
 
     @org.springframework.data.annotation.Transient
     override val wheelNumber: Int = 4

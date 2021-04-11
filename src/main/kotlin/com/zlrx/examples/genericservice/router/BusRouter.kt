@@ -20,8 +20,6 @@ class BusRouter(
                 ServerResponse.ok().bodyAndAwait(response)
             }
         }
-
-
     }
 
 }
