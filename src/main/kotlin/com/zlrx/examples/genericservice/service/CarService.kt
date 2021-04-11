@@ -13,4 +13,6 @@ class CarService : VehicleService<Car, CarRepository>() {
         Car(producer = producer, engineCapacity = engineCapacity, licencePlate = 6.randomCharsThisLength())
     }
 
+    fun filterEngineCapacityGte(minCapacity: Int) = repository.findByEngineCapacityGte(minCapacity)
+
 }

@@ -12,7 +12,7 @@
         "header": [],
         "body": {
           "mode": "raw",
-          "raw": "{\r\n    \"producer\": \"Ikarus\",\r\n    \"engineCapacity\": 7600\r\n}",
+          "raw": "{\r\n    \"producer\": \"Ford\",\r\n    \"engineCapacity\": 1600\r\n}",
           "options": {
             "raw": {
               "language": "json"
@@ -20,7 +20,7 @@
           }
         },
         "url": {
-          "raw": "localhost:8000/api/v1/vehicle?type=bus",
+          "raw": "localhost:8000/api/v1/vehicle?type=car",
           "host": [
             "localhost"
           ],
@@ -33,7 +33,7 @@
           "query": [
             {
               "key": "type",
-              "value": "bus"
+              "value": "car"
             }
           ]
         }
@@ -46,7 +46,7 @@
         "method": "GET",
         "header": [],
         "url": {
-          "raw": "localhost:8000/api/v1/vehicle?type=bus",
+          "raw": "localhost:8000/api/v1/vehicle?type=car",
           "host": [
             "localhost"
           ],
@@ -59,7 +59,7 @@
           "query": [
             {
               "key": "type",
-              "value": "bus"
+              "value": "car"
             }
           ]
         }
@@ -101,7 +101,7 @@
         "method": "PUT",
         "header": [],
         "url": {
-          "raw": "localhost:8000/api/v1/vehicle/install-wheels/6072104e2d6c9f5a4c50174d?type=lorry",
+          "raw": "localhost:8000/api/v1/vehicle/install-wheels/6072a13830ca970c5848c6ba?type=car",
           "host": [
             "localhost"
           ],
@@ -111,12 +111,12 @@
             "v1",
             "vehicle",
             "install-wheels",
-            "6072104e2d6c9f5a4c50174d"
+            "6072a13830ca970c5848c6ba"
           ],
           "query": [
             {
               "key": "type",
-              "value": "lorry"
+              "value": "car"
             }
           ]
         }
@@ -149,7 +149,7 @@
         "method": "GET",
         "header": [],
         "url": {
-          "raw": "localhost:8000/api/v1/bus",
+          "raw": "localhost:8000/api/v1/car?min-engine-capacity=1200",
           "host": [
             "localhost"
           ],
@@ -157,7 +157,13 @@
           "path": [
             "api",
             "v1",
-            "bus"
+            "car"
+          ],
+          "query": [
+            {
+              "key": "min-engine-capacity",
+              "value": "1200"
+            }
           ]
         }
       },
