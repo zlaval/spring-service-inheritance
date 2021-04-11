@@ -3,13 +3,12 @@ package com.zlrx.examples.genericservice.service
 import com.zlrx.examples.genericservice.configuration.VehicleServiceFactory
 import com.zlrx.examples.genericservice.domain.Vehicle
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.merge
 import kotlinx.coroutines.flow.onEach
 import org.springframework.stereotype.Service
 
 @Service
-class ExampleComposedService(
+class VehicleProcessor(
     private val serviceFactory: VehicleServiceFactory,
 
     //for example data loading
@@ -18,12 +17,11 @@ class ExampleComposedService(
     private val lorryService: LorryService
 ) {
 
-    suspend fun increaseAllVehicleEnginePower(): Flow<Vehicle> {
+    //example of processing multitype vehicles
+    suspend fun incrementAllVehiclesEnginePower(): Flow<Vehicle> {
         val vehicles = collectVehicles()
-        return vehicles.map {
+        return vehicles.onEach {
             it.engineCapacity += 100
-            it
-        }.onEach {
             serviceFactory.getService(it.getType()).save(it)
         }
     }

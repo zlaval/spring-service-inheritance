@@ -12,7 +12,7 @@
         "header": [],
         "body": {
           "mode": "raw",
-          "raw": "{\r\n    \"producer\": \"Ford\",\r\n    \"engineCapacity\": 1600\r\n}",
+          "raw": "{\r\n    \"producer\": \"Ikarus\",\r\n    \"engineCapacity\": 5500\r\n}",
           "options": {
             "raw": {
               "language": "json"
@@ -20,7 +20,7 @@
           }
         },
         "url": {
-          "raw": "localhost:8000/api/v1/vehicle?type=car",
+          "raw": "localhost:8000/api/v1/vehicle?type=bus",
           "host": [
             "localhost"
           ],
@@ -33,7 +33,7 @@
           "query": [
             {
               "key": "type",
-              "value": "car"
+              "value": "bus"
             }
           ]
         }
@@ -101,7 +101,7 @@
         "method": "PUT",
         "header": [],
         "url": {
-          "raw": "localhost:8000/api/v1/vehicle/install-wheels/6072a13830ca970c5848c6ba?type=car",
+          "raw": "localhost:8000/api/v1/vehicle/install-wheels/6072a8436c1aeb6a1e790ffd?type=car",
           "host": [
             "localhost"
           ],
@@ -111,7 +111,7 @@
             "v1",
             "vehicle",
             "install-wheels",
-            "6072a13830ca970c5848c6ba"
+            "6072a8436c1aeb6a1e790ffd"
           ],
           "query": [
             {
@@ -170,12 +170,12 @@
       "response": []
     },
     {
-      "name": "localhost:8000/api/v1/composed",
+      "name": "localhost:8000/api/v1/increment",
       "request": {
         "method": "GET",
         "header": [],
         "url": {
-          "raw": "localhost:8000/api/v1/composed",
+          "raw": "localhost:8000/api/v1/increment",
           "host": [
             "localhost"
           ],
@@ -183,7 +183,7 @@
           "path": [
             "api",
             "v1",
-            "composed"
+            "increment"
           ]
         }
       },

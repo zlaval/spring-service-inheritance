@@ -14,7 +14,7 @@ class CarRouter(
 ) {
 
     @Bean
-    fun busRouterFn() = coRouter {
+    fun carRouterFn() = coRouter {
         "/api/v1/car".nest {
             GET("") {
                 val filter = it.queryParam("min-engine-capacity")
