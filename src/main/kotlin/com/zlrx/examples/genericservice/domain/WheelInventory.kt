@@ -18,5 +18,6 @@ enum class WheelPlace {
 data class WheelInventory(
     var _id: String? = null,
     val size: Int,
-    val tension: Int
+    val tension: Int,
+    var place: WheelPlace? = null
 )
