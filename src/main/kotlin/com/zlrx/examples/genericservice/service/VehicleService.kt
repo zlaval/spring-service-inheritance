@@ -10,14 +10,6 @@ import kotlinx.coroutines.flow.take
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.HttpStatus
 
-class VehicleType {
-    companion object {
-        const val BUS = "bus"
-        const val CAR = "car"
-        const val LORRY = "lorry"
-    }
-}
-
 abstract class VehicleService<T : Vehicle, RT : VehicleRepository<T>> {
 
     @Autowired
@@ -32,12 +24,10 @@ abstract class VehicleService<T : Vehicle, RT : VehicleRepository<T>> {
     suspend fun installWheels(id: String): T {
         val vehicle = repository.findById(id) ?: throw ServiceException("Not found", HttpStatus.NOT_FOUND)
         val wheels = wheelRepository.findNotInstalled().take(vehicle.wheelNumber).toList()
-        vehicle.installWheels(wheels)
-        val saved = repository.save(vehicle)
-        vehicle.wheels.forEach {
-            wheelRepository.save(it)
+        vehicle.installWheels(wheels) {
+            wheelRepository.saveAll(it).toList()
         }
-        return saved
+        return repository.save(vehicle)
     }
 
     suspend fun searchVehicle(id: String): T {

@@ -1,7 +1,6 @@
 package com.zlrx.examples.genericservice.domain
 
-import com.zlrx.examples.genericservice.error.ServiceException
-import org.springframework.http.HttpStatus
+import com.zlrx.examples.genericservice.utils.CAR
 
 data class Car(
     var _id: String? = null,
@@ -11,27 +10,11 @@ data class Car(
     override val wheelIds: MutableList<String> = mutableListOf()
 ) : Vehicle() {
 
-    //@DBRef can be used here in non reactive environment
     @org.springframework.data.annotation.Transient
     override var wheels = mutableListOf<Wheel>()
 
     @org.springframework.data.annotation.Transient
     override val wheelNumber: Int = 4
 
-
-    //treat as a custom logic in demo (can be extracted into superclass)
-    override fun addWheels(installableWheels: List<Wheel>) {
-        when (installableWheels.size) {
-            wheelNumber -> installableWheels.forEachIndexed { i, w ->
-                val place = WheelPlace.values()[i]
-                w.place = place
-                w.mounted = true
-                w.description = "installed on car"
-                wheels.add(w)
-                wheelIds.add(w._id!!)
-            }
-            else -> throw ServiceException("You have to install $wheelNumber wheels onto the car", HttpStatus.BAD_REQUEST)
-        }
-    }
-
+    override fun getType() = CAR
 }

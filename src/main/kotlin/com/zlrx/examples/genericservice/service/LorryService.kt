@@ -2,10 +2,11 @@ package com.zlrx.examples.genericservice.service
 
 import com.zlrx.examples.genericservice.domain.Lorry
 import com.zlrx.examples.genericservice.repository.LorryRepository
+import com.zlrx.examples.genericservice.utils.LORRY
 import com.zlrx.examples.genericservice.utils.randomCharsThisLength
 import org.springframework.stereotype.Service
 
-@Service(value = VehicleType.LORRY)
+@Service(value = LORRY)
 class LorryService : VehicleService<Lorry, LorryRepository>() {
 
     override val create = { producer: String, engineCapacity: Int ->
