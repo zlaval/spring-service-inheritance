@@ -28,6 +28,7 @@ abstract class VehicleService<T : Vehicle, RT : VehicleRepository<T>> {
 
     protected abstract val create: (String, Int) -> T
 
+    //this should ring the bell that we dont use the given tools well (mongo as rdbms)
     suspend fun installWheels(id: String): T {
         val vehicle = repository.findById(id) ?: throw ServiceException("Not found", HttpStatus.NOT_FOUND)
         val wheels = wheelRepository.findNotInstalled().take(vehicle.wheelNumber).toList()

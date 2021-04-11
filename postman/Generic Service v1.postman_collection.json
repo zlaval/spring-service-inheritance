@@ -1,0 +1,167 @@
+{
+  "info": {
+    "_postman_id": "b79c99f3-86bf-4229-a3d4-fbc6af65f7d2",
+    "name": "Generic Service v1",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "localhost:8000/api/v1/vehicle?type=bus",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"producer\": \"Ikarus\",\r\n    \"engineCapacity\": 7600\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "localhost:8000/api/v1/vehicle?type=bus",
+          "host": [
+            "localhost"
+          ],
+          "port": "8000",
+          "path": [
+            "api",
+            "v1",
+            "vehicle"
+          ],
+          "query": [
+            {
+              "key": "type",
+              "value": "bus"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "localhost:8000/api/v1/vehicle?type=bus",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "localhost:8000/api/v1/vehicle?type=bus",
+          "host": [
+            "localhost"
+          ],
+          "port": "8000",
+          "path": [
+            "api",
+            "v1",
+            "vehicle"
+          ],
+          "query": [
+            {
+              "key": "type",
+              "value": "bus"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "localhost:8000/api/v1/wheel",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n \"size\": 17,\r\n \"tension\": 3\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "localhost:8000/api/v1/wheel",
+          "host": [
+            "localhost"
+          ],
+          "port": "8000",
+          "path": [
+            "api",
+            "v1",
+            "wheel"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "localhost:8000/api/v1/vehicle/install-wheels/6072104e2d6c9f5a4c50174d?type=lorry",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "url": {
+          "raw": "localhost:8000/api/v1/vehicle/install-wheels/6072104e2d6c9f5a4c50174d?type=lorry",
+          "host": [
+            "localhost"
+          ],
+          "port": "8000",
+          "path": [
+            "api",
+            "v1",
+            "vehicle",
+            "install-wheels",
+            "6072104e2d6c9f5a4c50174d"
+          ],
+          "query": [
+            {
+              "key": "type",
+              "value": "lorry"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "localhost:8000/api/v1/wheel",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "localhost:8000/api/v1/wheel",
+          "host": [
+            "localhost"
+          ],
+          "port": "8000",
+          "path": [
+            "api",
+            "v1",
+            "wheel"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "localhost:8000/api/v1/bus",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "localhost:8000/api/v1/bus",
+          "host": [
+            "localhost"
+          ],
+          "port": "8000",
+          "path": [
+            "api",
+            "v1",
+            "bus"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
