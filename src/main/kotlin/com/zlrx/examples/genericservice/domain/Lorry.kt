@@ -6,7 +6,7 @@ data class Lorry(
     var _id: String? = null,
     val producer: String,
     val licencePlate: String,
-    val engineCapacity: Int,
+    override var engineCapacity: Int,
     override var wheels: MutableList<WheelInventory> = mutableListOf()
 ) : Vehicle() {
 

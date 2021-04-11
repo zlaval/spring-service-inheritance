@@ -6,6 +6,7 @@ import org.springframework.http.HttpStatus
 
 abstract class Vehicle {
     abstract val wheelNumber: Int
+    abstract var engineCapacity: Int
 
     abstract var wheels: MutableList<WheelInventory>
 
@@ -35,5 +36,5 @@ abstract class Vehicle {
         }
     }
 
-    protected abstract fun getType(): String
+    abstract fun getType(): String
 }

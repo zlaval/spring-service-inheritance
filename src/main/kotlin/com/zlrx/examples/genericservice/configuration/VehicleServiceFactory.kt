@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 
 interface VehicleServiceFactory {
-    fun getService(type: String): VehicleService<out Vehicle, out VehicleRepository<out Vehicle>>
+    fun getService(type: String): VehicleService<Vehicle, out VehicleRepository<Vehicle>>
 }
 
 @Configuration

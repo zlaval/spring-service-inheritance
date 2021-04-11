@@ -37,4 +37,8 @@ abstract class VehicleService<T : Vehicle, RT : VehicleRepository<T>> {
 
     fun findAll() = repository.findAll()
 
+    suspend fun save(vehicle: T): T {
+        return repository.save(vehicle)
+    }
+
 }
