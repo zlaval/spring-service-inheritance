@@ -19,5 +19,6 @@ data class WheelInventory(
     var _id: String? = null,
     val size: Int,
     val tension: Int,
+    var description: String? = null,
     var place: WheelPlace? = null
 )

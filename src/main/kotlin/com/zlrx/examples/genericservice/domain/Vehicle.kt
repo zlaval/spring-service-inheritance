@@ -13,14 +13,14 @@ abstract class Vehicle {
     @org.springframework.data.annotation.Transient
     private val logger = LoggerFactory.getLogger(javaClass)
 
-    fun installWheels(installableWheels: List<WheelInventory>) {
+    fun putWheels(installableWheels: List<WheelInventory>) {
         when {
             wheels.isNotEmpty() -> {
                 throw ServiceException("Wheels have already been installed")
             }
             installableWheels.size == wheelNumber -> {
                 wheels = installableWheels.toMutableList()
-                putOnWheels()
+                setWheelsProps()
             }
             else -> {
                 logger.error("Not enough wheels")
@@ -29,10 +29,11 @@ abstract class Vehicle {
         }
     }
 
-    private fun putOnWheels() {
+    private fun setWheelsProps() {
         wheels.forEachIndexed { index, wheel ->
             val place = WheelPlace.values()[index]
             wheel.place = place
+            wheel.description = getType()
         }
     }
 

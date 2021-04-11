@@ -22,7 +22,7 @@ abstract class VehicleService<T : Vehicle, RT : VehicleRepository<T>> {
     suspend fun installWheels(id: String): T {
         val vehicle = repository.findById(id) ?: throw ServiceException("Not found", HttpStatus.NOT_FOUND)
         val wheels = wheelInventoryRepository.findAll().take(vehicle.wheelNumber).toList()
-        vehicle.installWheels(wheels)
+        vehicle.putWheels(wheels)
         val result = repository.save(vehicle)
         wheelInventoryRepository.deleteAll(wheels)
         return result
