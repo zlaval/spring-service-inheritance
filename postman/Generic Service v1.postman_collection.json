@@ -168,6 +168,26 @@
         }
       },
       "response": []
+    },
+    {
+      "name": "localhost:8000/api/v1/composed",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "localhost:8000/api/v1/composed",
+          "host": [
+            "localhost"
+          ],
+          "port": "8000",
+          "path": [
+            "api",
+            "v1",
+            "composed"
+          ]
+        }
+      },
+      "response": []
     }
   ]
 }

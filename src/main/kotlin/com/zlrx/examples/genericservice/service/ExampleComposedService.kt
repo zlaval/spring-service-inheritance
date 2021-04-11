@@ -11,6 +11,8 @@ import org.springframework.stereotype.Service
 @Service
 class ExampleComposedService(
     private val serviceFactory: VehicleServiceFactory,
+
+    //for example data loading
     private val busService: BusService,
     private val carService: CarService,
     private val lorryService: LorryService
@@ -26,6 +28,7 @@ class ExampleComposedService(
         }
     }
 
+    //load example data
     private fun collectVehicles(): Flow<Vehicle> {
         val buses: Flow<Vehicle> = busService.findAll()
         val cars: Flow<Vehicle> = carService.findAll()
