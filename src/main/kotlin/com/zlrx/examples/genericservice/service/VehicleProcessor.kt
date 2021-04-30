@@ -1,7 +1,6 @@
 package com.zlrx.examples.genericservice.service
 
 import com.zlrx.examples.genericservice.configuration.VehicleServiceFactory
-import com.zlrx.examples.genericservice.domain.Vehicle
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.merge
 import kotlinx.coroutines.flow.onEach

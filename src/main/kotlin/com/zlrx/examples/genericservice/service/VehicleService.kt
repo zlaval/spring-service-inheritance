@@ -1,6 +1,5 @@
 package com.zlrx.examples.genericservice.service
 
-import com.zlrx.examples.genericservice.domain.Vehicle
 import com.zlrx.examples.genericservice.error.ServiceException
 import com.zlrx.examples.genericservice.repository.VehicleRepository
 import com.zlrx.examples.genericservice.repository.WheelInventoryRepository

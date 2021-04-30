@@ -1,7 +1,6 @@
 package com.zlrx.examples.genericservice.router
 
 import com.zlrx.examples.genericservice.configuration.VehicleServiceFactory
-import com.zlrx.examples.genericservice.domain.Vehicle
 import com.zlrx.examples.genericservice.error.ServiceException
 import com.zlrx.examples.genericservice.model.VehicleRequest
 import com.zlrx.examples.genericservice.repository.VehicleRepository
