@@ -15,7 +15,15 @@ enum class WheelPlace {
     MIDDLE_RIGHT_2
 }
 
-data class WheelInventory(
+val wheelGeneratorFn: (Int, String) -> List<Wheel> = { count, name ->
+    (1..count).map { index ->
+        Wheel(size = 30, tension = 10, description = "$name wheel", place = getWheelPlace(index))
+    }
+}
+
+fun getWheelPlace(index: Int): WheelPlace = WheelPlace.values()[index]
+
+data class Wheel(
     var _id: String? = null,
     val size: Int,
     val tension: Int,

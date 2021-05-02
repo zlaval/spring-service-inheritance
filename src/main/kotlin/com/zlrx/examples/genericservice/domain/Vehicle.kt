@@ -4,12 +4,20 @@ sealed class Vehicle {
     abstract val wheelNumber: Int
 }
 
+val installLorryWheels: suspend (Lorry) -> Lorry = {
+    val wheels = wheelGeneratorFn(it.wheelNumber, "Lorry")
+    it.copy(
+        wheels = wheels,
+        massTons = it.massTons + 1
+    )
+}
+
 data class Lorry(
-    var _id: String? = null,
+    val _id: String? = null,
     val producer: String,
     val licencePlate: String,
     val engineCapacity: Int,
-    val wheels: List<WheelInventory> = emptyList(),
+    val wheels: List<Wheel> = emptyList(),
     val trailerSize: Int,
     val massTons: Int = 10
 ) : Vehicle() {
@@ -19,12 +27,20 @@ data class Lorry(
 
 }
 
+val installCarWheels: (Car, (Int, String) -> List<Wheel>) -> Car = { car, generator ->
+    val wheels = generator(car.wheelNumber, "Bus")
+    car.copy(
+        wheels = wheels
+    )
+}
+
+
 data class Car(
-    var _id: String? = null,
+    val _id: String? = null,
     val producer: String,
     val licencePlate: String,
     val engineCapacity: Int,
-    val wheels: List<WheelInventory> = emptyList()
+    val wheels: List<Wheel> = emptyList()
 ) : Vehicle() {
 
     @Transient
@@ -32,12 +48,19 @@ data class Car(
 
 }
 
+val installBusWheels: (Bus, (Int, String) -> List<Wheel>) -> Bus = { bus, generator ->
+    val wheels = generator(bus.wheelNumber, "Bus")
+    bus.copy(
+        wheels = wheels
+    )
+}
+
 data class Bus(
-    var _id: String? = null,
+    val _id: String? = null,
     val producer: String,
     val licencePlate: String,
     val engineCapacity: Int,
-    val wheels: List<WheelInventory> = emptyList(),
+    val wheels: List<Wheel> = emptyList(),
     val passengerCount: Int
 ) : Vehicle() {
 
