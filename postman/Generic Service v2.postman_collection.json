@@ -1,0 +1,80 @@
+{
+  "info": {
+    "_postman_id": "f72d759b-59db-46ea-8875-9aaea756e1ad",
+    "name": "Generic Service v2",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "localhost:8000/api/v1/vehicle",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "localhost:8000/api/v1/vehicle",
+          "host": [
+            "localhost"
+          ],
+          "port": "8000",
+          "path": [
+            "api",
+            "v1",
+            "vehicle"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "localhost:8000/api/v1/vehicle/lorry",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"producer\": \"IFA\",\r\n    \"engineCapacity\": 8000\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "localhost:8000/api/v1/vehicle/lorry",
+          "host": [
+            "localhost"
+          ],
+          "port": "8000",
+          "path": [
+            "api",
+            "v1",
+            "vehicle",
+            "lorry"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "localhost:8000/api/v1/vehicle/install-wheels",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "url": {
+          "raw": "localhost:8000/api/v1/vehicle/install-wheels",
+          "host": [
+            "localhost"
+          ],
+          "port": "8000",
+          "path": [
+            "api",
+            "v1",
+            "vehicle",
+            "install-wheels"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}

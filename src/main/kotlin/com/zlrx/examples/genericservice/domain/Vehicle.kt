@@ -22,7 +22,7 @@ data class Lorry(
     val massTons: Int = 10
 ) : Vehicle() {
 
-    @Transient
+    @org.springframework.data.annotation.Transient
     override val wheelNumber: Int = 12
 
 }
@@ -43,7 +43,7 @@ data class Car(
     val wheels: List<Wheel> = emptyList()
 ) : Vehicle() {
 
-    @Transient
+    @org.springframework.data.annotation.Transient
     override val wheelNumber: Int = 4
 
 }
@@ -64,7 +64,7 @@ data class Bus(
     val passengerCount: Int
 ) : Vehicle() {
 
-    @Transient
+    @org.springframework.data.annotation.Transient
     override val wheelNumber: Int = 6
 
 }

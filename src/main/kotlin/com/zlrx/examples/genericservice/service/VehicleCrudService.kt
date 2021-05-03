@@ -24,11 +24,12 @@ class VehicleCrudService(
         return (buses + lorries + cars).asFlow()
     }
 
-    suspend fun addVehicle(type: String, request: VehicleRequest) {
-        when (type) {
+    suspend fun addVehicle(type: String, request: VehicleRequest): Vehicle {
+        return when (type) {
             "car" -> carService.addVehicle(request.producer, request.engineCapacity)
             "bus" -> busService.addVehicle(request.producer, request.engineCapacity)
             "lorry" -> lorryService.addVehicle(request.producer, request.engineCapacity)
+            else -> throw UnsupportedOperationException()
         }
     }
 

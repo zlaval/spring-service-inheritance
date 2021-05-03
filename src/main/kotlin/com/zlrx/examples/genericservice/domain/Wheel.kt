@@ -16,7 +16,7 @@ enum class WheelPlace {
 }
 
 val wheelGeneratorFn: (Int, String) -> List<Wheel> = { count, name ->
-    (1..count).map { index ->
+    (0 until count).map { index ->
         Wheel(size = 30, tension = 10, description = "$name wheel", place = getWheelPlace(index))
     }
 }
@@ -24,9 +24,8 @@ val wheelGeneratorFn: (Int, String) -> List<Wheel> = { count, name ->
 fun getWheelPlace(index: Int): WheelPlace = WheelPlace.values()[index]
 
 data class Wheel(
-    var _id: String? = null,
     val size: Int,
     val tension: Int,
-    val description: String? = null,
-    val place: WheelPlace? = null
+    val description: String,
+    val place: WheelPlace
 )
